@@ -20,18 +20,14 @@ public class Chef {
     private String address;
     private String role        = "chef";
     private Double pricePerDay = 0.0;
-
-    // Chef's cooking specialisation e.g. "Indian Chef", "Italian Chef"
     private String specialisation;
 
-    // Stored rating — updated every time a customer submits a rating
     private Double avgRating   = 0.0;
     private int    ratingCount = 0;
 
     @Column(columnDefinition = "LONGTEXT")
     private String photo;
 
-    // Availability is NOT stored in DB — managed by ChefAvailabilityStore
     @Transient
     private boolean available = false;
 
