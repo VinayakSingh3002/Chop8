@@ -13,15 +13,14 @@ public class Booking {
     private Long id;
 
     private String date;
-    private String status;        // CONFIRMED | EXPIRED | CANCELLED
+    private String status;        
     private String tokenId;
     private String timeIn;
     private String timeOut;
 
-    // ── Payment ───────────────────────────────────────────
-    private String paymentMode;   // "COD" | "ONLINE"
+    private String paymentMode;   
     private Double amountPaid;
-    private String paymentStatus; // null | "PAID"
+    private String paymentStatus; 
     private String paymentId;
 
     @ManyToOne
