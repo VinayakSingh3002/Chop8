@@ -1,0 +1,87 @@
+/* 🔷 CARD */
+.card {
+  width: 220px;
+  height: 280px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 18px;
+  border-radius: 14px;
+
+  /* ✅ Soft neutral bluish background (NOT white) */
+background: #E0EAFC;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+  /* ✨ Glass effect */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  /* 💎 Soft shadow */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+  /* subtle border */
+  border: 1px solid rgba(255, 255, 255, 0.4);
+
+  transition: all 0.3s ease;
+}
+
+/* 🔥 Hover */
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* 🔝 Top */
+.top {
+  text-align: center;
+}
+
+.icon {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+/* text */
+.card h3 {
+  margin: 6px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e3c72; /* match navbar */
+}
+
+.card p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* 💰 Price */
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+
+  color: #2a5298; /* navbar tone */
+}
+
+/* 🛒 Button */
+.bookBtn {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(135deg, #4facfe, #00c6ff);
+  color: white;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* hover */
+.bookBtn:hover {
+  opacity: 0.9;
+}

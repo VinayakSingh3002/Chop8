@@ -1,0 +1,139 @@
+
+
+/* Footer */
+.footer {
+  background: white;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Container */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Top Section */
+.topSection {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Logo */
+.logoSection {
+  margin-bottom: 24px;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+ width: 20vw;
+ height: 16vh;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+/* Heading */
+.heading {
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  text-transform: uppercase;
+}
+
+/* List */
+.list {
+  list-style: none;
+  padding: 0;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.list li {
+  margin-bottom: 12px;
+}
+
+.list a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.list a:hover {
+  text-decoration: underline;
+}
+
+/* Divider */
+.divider {
+  margin: 24px 0;
+  border: 1px solid #e5e7eb;
+}
+
+/* Bottom */
+.bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Copy */
+.copy {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Socials */
+.socials {
+  display: flex;
+  margin-top: 16px;
+  gap: 20px;
+}
+
+/* Icons */
+.icon {
+  width: 16px;
+  height: 16px;
+  color: #34363d;
+}
+
+.icon:hover {
+  color: #111827;
+}
+
+/* 🔥 Responsive */
+@media (min-width: 640px) {
+  .bottom {
+    flex-direction: row;
+  }
+
+  .socials {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .topSection {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .logoSection {
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

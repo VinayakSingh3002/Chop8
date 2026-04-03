@@ -1,0 +1,49 @@
+package backendChop8.User;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "user")
+public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+
+    @Column(unique = true, nullable = false)
+    private String email;
+
+    private String password;
+    private String mobile;
+    private String address;
+    private String role = "customer";
+
+    // Stored rating — updated every time a chef submits a rating for this customer
+    private Double avgRating   = 0.0;
+    private int    ratingCount = 0;
+
+    @Column(columnDefinition = "LONGTEXT")
+    private String photo;
+
+    public Long   getId()                  { return id; }
+    public String getName()                { return name; }
+    public void   setName(String n)        { this.name = n; }
+    public String getEmail()               { return email; }
+    public void   setEmail(String e)       { this.email = e; }
+    public String getPassword()            { return password; }
+    public void   setPassword(String p)    { this.password = p; }
+    public String getMobile()              { return mobile; }
+    public void   setMobile(String m)      { this.mobile = m; }
+    public String getAddress()             { return address; }
+    public void   setAddress(String a)     { this.address = a; }
+    public String getRole()                { return role; }
+    public void   setRole(String r)        { this.role = r; }
+    public Double getAvgRating()           { return avgRating; }
+    public void   setAvgRating(Double v)   { this.avgRating = v; }
+    public int    getRatingCount()         { return ratingCount; }
+    public void   setRatingCount(int v)    { this.ratingCount = v; }
+    public String getPhoto()               { return photo; }
+    public void   setPhoto(String p)       { this.photo = p; }
+}

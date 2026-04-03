@@ -1,0 +1,106 @@
+
+/* Rightnav.module.css */
+
+.actions {
+  order: 2;
+}
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Login Button */
+.loginBtn {
+  color: rgba(255, 255, 255, 0.85);
+  background: transparent;
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.loginBtn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+/* Signup / Get Started Button */
+.startBtn {
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: #ffffff;
+
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4);
+}
+
+.startBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(14, 165, 233, 0.6);
+}
+
+/* Profile Button (optional when logged in) */
+
+
+
+.profileBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 6px 14px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  text-decoration: none;
+
+  transition: 0.3s;
+}
+
+.profileBtn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.icon {
+  font-size: 18px;
+}
+
+
+/* hambarger */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  padding: 6px;
+}
+
+/* lines */
+.hamburger span {
+  width: 28px;
+  height: 5px;
+  background: white; /* match navbar */
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+/* animation */
+.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}

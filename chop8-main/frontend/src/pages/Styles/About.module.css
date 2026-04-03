@@ -1,0 +1,113 @@
+/* base */
+.about {
+  font-family: "Poppins", sans-serif;
+}
+
+/* 🔥 hero */
+.hero {
+  padding: 80px 20px;
+  text-align: center;
+background: #314755;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #26a0da, #314755);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #26a0da, #314755); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+  color: white;
+}
+
+.hero h1 {
+  font-size: 40px;
+}
+
+.hero p {
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+/* sections */
+.section {
+  padding: 60px 20px;
+  text-align: center;
+
+  background: linear-gradient(135deg, #f8fbff, #eef6ff);
+}
+
+.sectionAlt {
+  padding: 60px 20px;
+  text-align: center;
+
+  background: linear-gradient(135deg, #eef5ff, #e3efff);
+}
+
+/* headings */
+.section h2,
+.sectionAlt h2 {
+  font-size: 30px;
+}
+
+/* grid */
+.grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.grid div {
+  max-width: 300px;
+}
+
+/* features */
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.features div {
+  background: rgba(255,255,255,0.6);
+  padding: 12px 18px;
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+}
+
+/* stats */
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.stats h3 {
+  font-size: 28px;
+  color: #2a5298;
+}
+
+/* CTA */
+.cta {
+  padding: 60px 20px;
+  text-align: center;
+
+ background: #314755;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #26a0da, #314755);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #26a0da, #314755); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  color: white;
+}
+
+.cta button {
+  margin-top: 15px;
+  padding: 10px 20px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: white;
+  color: #4facfe;
+  font-weight: bold;
+
+  cursor: pointer;
+}

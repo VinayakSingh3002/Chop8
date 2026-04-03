@@ -1,0 +1,235 @@
+/* 🌐 Base */
+.home {
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  color: #222;
+}
+
+/* 🔥 HERO (Premium Gradient + Glass Effect) */
+.hero {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+background: #314755;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #26a0da, #314755);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #26a0da, #314755); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  /* background: linear-gradient(135deg, #5da1b6, #1d4177); */
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle glow */
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: rgba(255,255,255,0.1);
+  filter: blur(120px);
+  top: -100px;
+  right: -100px;
+}
+
+/* content */
+.heroContent {
+  max-width: 650px;
+  backdrop-filter: blur(10px);
+  padding: 20px;
+}
+
+.heroContent h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.heroContent p {
+  font-size: 18px;
+  opacity: 0.9;
+  margin-bottom: 25px;
+}
+
+/* buttons */
+.heroBtns {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.primaryBtn {
+  padding: 12px 24px;
+  border-radius: 30px;
+  border: none;
+
+  background: linear-gradient(135deg, #4facfe, #00c6ff);
+  color: white;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+.secondaryBtn {
+  padding: 12px 24px;
+  border-radius: 30px;
+
+  border: 1px solid rgba(255,255,255,0.5);
+  background: transparent;
+  color: white;
+
+  backdrop-filter: blur(5px);
+  cursor: pointer;
+}
+
+.secondaryBtn:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* 📦 Sections */
+.section {
+  padding: 70px 20px;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+.sectionAlt {
+  padding: 70px 20px;
+  text-align: center;
+
+  background: #f8fbff;
+}
+
+/* titles */
+.section h2,
+.sectionAlt h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.section h2::after,
+.sectionAlt h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 10px auto;
+  background: linear-gradient(135deg, #4facfe, #00c6ff);
+  border-radius: 2px;
+}
+
+/* cards layout */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 35px;
+  flex-wrap: wrap;
+}
+
+/* 🚀 CTA */
+.cta {
+  padding: 70px 20px;
+  text-align: center;
+background: #314755;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #26a0da, #314755);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #26a0da, #314755); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+ 
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(255,255,255,0.15);
+  filter: blur(100px);
+  top: -100px;
+  left: -100px;
+}
+
+.cta h2 {
+  font-size: 32px;
+}
+
+.cta p {
+  margin: 10px 0 20px;
+  opacity: 0.9;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .heroContent h1 {
+    font-size: 32px;
+  }
+
+  .heroBtns {
+    flex-direction: column;
+  }
+
+  .cards {
+    gap: 15px;
+  }
+}
+
+/* experiment */
+.section {
+  padding: 70px 20px;
+  text-align: center;
+
+  background: linear-gradient(135deg, #f8fbff, #eef6ff);
+}
+.sectionAlt {
+  padding: 70px 20px;
+  text-align: center;
+
+  background: linear-gradient(135deg, #eef5ff, #e3efff);
+}
+.section,
+.sectionAlt {
+  position: relative;
+}
+
+.section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 1px;
+  background: rgba(0,0,0,0.05);
+}
+.section h2,
+.sectionAlt h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.section h2::after,
+.sectionAlt h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 10px auto;
+  background: linear-gradient(135deg, #4facfe, #00c6ff);
+  border-radius: 2px;
+}
+

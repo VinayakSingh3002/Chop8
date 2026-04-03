@@ -1,0 +1,49 @@
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(135deg, #4facfe, #00c6ff);
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 340px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.card h2 {
+  text-align: center;
+}
+
+.card input,
+.card select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.card button {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+
+  background: linear-gradient(135deg, #4facfe, #00c6ff);
+  color: white;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.switch {
+  text-align: center;
+  font-size: 14px;
+}
