@@ -20,7 +20,7 @@ public class User {
     private String address;
     private String role = "customer";
 
-    // Stored rating — updated every time a chef submits a rating for this customer
+    
     private Double avgRating   = 0.0;
     private int    ratingCount = 0;
 
