@@ -1,2 +1,1 @@
-structure update
-
+Chop8 is a chef-on-demand web application where customers book professional chefs for home cooking, events, and meal prep. Built with React on the frontend and Spring Boot + MySQL on the backend. Features include booking with token generation, availability toggling, auto-expiry of past bookings, and a chef dashboard.
