@@ -12,10 +12,10 @@ public class Rating {
 
     private Long   raterId;
     private String raterName;
-    private String raterRole;   // "customer" or "chef"
+    private String raterRole;   
     private Long   rateeId;
-    private String rateeRole;   // "chef" or "customer"
-    private int    stars;       // 1–5
+    private String rateeRole;   
+    private int    stars;       
     private String comment;
     private Long   bookingId;
     private String createdAt;
