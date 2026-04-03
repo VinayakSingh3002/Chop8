@@ -15,10 +15,6 @@ public class AuthController {
     @Autowired
     private AuthService authService;
 
-    // ─── SIGNUP ───────────────────────────────────────────
-    // Accepts: { name, email, password, mobile, address, role }
-    // role = "customer" → saves to user table
-    // role = "chef"     → saves to chef table
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@RequestBody Map<String, String> body) {
         String email = body.get("email");
@@ -38,8 +34,6 @@ public class AuthController {
         ));
     }
 
-    // ─── LOGIN ────────────────────────────────────────────
-    // Checks chef table first, then user table
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Map<String, String> credentials) {
         String email    = credentials.get("email");
