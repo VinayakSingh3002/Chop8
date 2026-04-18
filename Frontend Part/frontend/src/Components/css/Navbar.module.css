@@ -1,0 +1,165 @@
+/* src/Components/css/Navbar.module.css */
+
+/* ── Main navbar bar ─────────────────────────────────────
+   display:flex + flex-direction:row makes everything
+   sit in a HORIZONTAL line                              */
+.navbar {
+  display: flex;
+  flex-direction: row;        /* ← horizontal layout */
+  align-items: center;        /* vertically centred   */
+  justify-content: space-between;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  padding: 0 24px;
+  height: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+
+/* ── Brand / Logo ────────────────────────────────────── */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.brandText {
+  font-size: 20px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: 1px;
+}
+
+/* ── Centre nav links ────────────────────────────────────
+   flex-direction:row makes the links sit side by side   */
+.navLinks {
+  display: flex;
+  flex-direction: row;        /* ← horizontal links */
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLinks li {
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 14px;
+  color: rgba(255,255,255,0.88);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+}
+
+.navLink:hover {
+  background: rgba(255,255,255,0.15);
+  color: white;
+}
+
+/* ── Right side (user pill + buttons) ───────────────────
+   display:flex + row keeps them horizontal               */
+.rightNav {
+  display: flex;
+  flex-direction: row;        /* ← horizontal */
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* Logged-in user pill */
+.userPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.userPill:hover { background: rgba(255,255,255,0.25); }
+
+.userIcon { font-size: 15px; }
+
+/* Logout button */
+.logoutBtn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.5);
+  color: white;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.logoutBtn:hover { background: rgba(255,255,255,0.15); }
+
+/* Login button */
+.loginBtn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.6);
+  color: white;
+  border-radius: 8px;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.loginBtn:hover { background: rgba(255,255,255,0.15); }
+
+/* Get started button */
+.signupBtn {
+  background: white;
+  border: none;
+  color: #1e3c72;
+  border-radius: 8px;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+.signupBtn:hover { opacity: 0.9; }
+
+/* Hamburger button */
+.hamburger {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  line-height: 1;
+  transition: background 0.2s;
+}
+.hamburger:hover { background: rgba(255,255,255,0.15); }
