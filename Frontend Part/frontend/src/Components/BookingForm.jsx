@@ -9,6 +9,7 @@ function BookingForm({ chef, onClose, onBooked, alreadyBooked }) {
   const [timeOut,      setTimeOut]      = useState("");
   const [paymentMode,  setPaymentMode]  = useState("");
   const [busy,         setBusy]         = useState(false);
+  const [bookedSlots,  setBookedSlots]  = useState([]);   // [{timeIn, timeOut}] already booked
   const [loading,      setLoading]      = useState(false);
   const [error,        setError]        = useState("");
 
@@ -127,8 +128,17 @@ function BookingForm({ chef, onClose, onBooked, alreadyBooked }) {
     try {
       const res  = await fetch(`${API.bookings}/chef/${chef.id}/busy?date=${val}`);
       const data = await res.json();
+      // Store the booked slots (not just busy=true/false)
+      // busy=true just means SOME slot exists — we check actual overlap on submit
+      setBookedSlots(data.bookedSlots || []);
       setBusy(data.busy === true);
-      if (data.busy) setError(`${chef.name} is already booked on ${val}. Choose another date.`);
+      // Don't block the whole day — just show info message about existing bookings
+      if (data.busy) {
+        const slotList = (data.bookedSlots || [])
+          .map(s => `${s.timeIn} – ${s.timeOut}`)
+          .join(", ");
+        setError(`${chef.name} has bookings on ${val} during: ${slotList}. Choose a different time slot.`);
+      }
     } catch { /* ignore */ }
   };
 
@@ -146,7 +156,19 @@ function BookingForm({ chef, onClose, onBooked, alreadyBooked }) {
     if (!timeIn)            { setError("Please select a check-in time."); return; }
     if (!timeOut)           { setError("Please select a check-out time."); return; }
     if (timeOut <= timeIn)  { setError("Check-out must be after check-in."); return; }
-    if (busy)               { setError(`${chef.name} is already booked on ${date}.`); return; }
+    // Check if selected time slot overlaps with any existing booked slot
+    const hasOverlap = bookedSlots.some(slot => {
+      // Overlap: newIn < existingOut AND newOut > existingIn
+      return timeIn < slot.timeOut && timeOut > slot.timeIn;
+    });
+    if (hasOverlap) {
+      const conflicting = bookedSlots
+        .filter(s => timeIn < s.timeOut && timeOut > s.timeIn)
+        .map(s => `${s.timeIn} – ${s.timeOut}`)
+        .join(", ");
+      setError(`Time conflict! ${chef.name} is already booked during ${conflicting} on ${date}. Please choose a different time.`);
+      return;
+    }
     if (!paymentMode)       { setError("Please select a payment method."); return; }
 
     setLoading(true); setError("");
@@ -180,7 +202,7 @@ function BookingForm({ chef, onClose, onBooked, alreadyBooked }) {
   };
 
   const timeInvalid = timeIn && timeOut && timeOut <= timeIn;
-  const canConfirm  = !loading && !busy && !timeInvalid && paymentMode;
+  const canConfirm  = !loading && !timeInvalid && paymentMode;
 
   // ── Booking form ──────────────────────────────────────
   return (
@@ -192,7 +214,7 @@ function BookingForm({ chef, onClose, onBooked, alreadyBooked }) {
       <div style={fg}>
         <label style={lbl}>📅 Select Date</label>
         <input type="date" min={new Date().toISOString().split("T")[0]}
-          style={{ ...inp, borderColor: busy ? "#e53935" : "#ccc", background: busy ? "#fff5f5" : "white" }}
+          style={{ ...inp, borderColor: "#ccc", background: "white" }}
           onChange={handleDateChange} />
       </div>
 
