@@ -47,9 +47,30 @@ public class BookingService {
         if (!availabilityStore.isAvailable(chefId))
             throw new RuntimeException("This chef is currently not available for booking.");
 
-        List<Booking> dateBookings = getConfirmedBookingsForDate(chefId, date);
-        if (!dateBookings.isEmpty())
-            throw new RuntimeException(chef.getName() + " is already booked on " + date + ". Please choose a different date.");
+        // ── Time-overlap check (NOT whole-day block) ─────────
+        // A chef can be booked multiple times on the same date
+        // as long as the time slots do not overlap.
+        // Two slots overlap when: newIn < existingOut AND newOut > existingIn
+        String newIn  = booking.getTimeIn();
+        String newOut = booking.getTimeOut();
+        if (newIn != null && newOut != null) {
+            List<Booking> dateBookings = getConfirmedBookingsForDate(chefId, date);
+            for (Booking existing : dateBookings) {
+                String exIn  = existing.getTimeIn();
+                String exOut = existing.getTimeOut();
+                if (exIn != null && exOut != null) {
+                    boolean overlaps = newIn.compareTo(exOut) < 0
+                                    && newOut.compareTo(exIn) > 0;
+                    if (overlaps) {
+                        throw new RuntimeException(
+                            chef.getName() + " is already booked from "
+                            + exIn + " to " + exOut
+                            + " on " + date
+                            + ". Please choose a different time slot.");
+                    }
+                }
+            }
+        }
 
         Optional<Booking> duplicate = bookingRepo.findByChefIdAndUserIdAndDate(chefId, userId, date);
         if (duplicate.isPresent() && "CONFIRMED".equals(duplicate.get().getStatus()))

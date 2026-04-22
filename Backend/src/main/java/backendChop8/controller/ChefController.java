@@ -76,12 +76,30 @@ public class ChefController {
     }
 
     // ── GET /api/bookings/chef/{chefId}/busy ──────────────
+    // Returns busy=true only if the chef has ANY confirmed booking on that date.
+    // Also returns the list of booked time slots so the frontend can show
+    // which specific hours are taken (not just block the whole day).
     @GetMapping("/bookings/chef/{chefId}/busy")
     public ResponseEntity<?> getBusySlots(
             @PathVariable Long   chefId,
             @RequestParam  String date) {
         List<Booking> slots = bookingService.getBusySlotsForDate(chefId, date);
-        return ResponseEntity.ok(Map.of("busy", !slots.isEmpty(), "count", slots.size()));
+
+        // Build a list of booked time ranges for the frontend
+        java.util.List<java.util.Map<String, Object>> bookedSlots = slots.stream()
+            .map(b -> {
+                java.util.Map<String, Object> m = new java.util.HashMap<>();
+                m.put("timeIn",  b.getTimeIn());
+                m.put("timeOut", b.getTimeOut());
+                return m;
+            })
+            .collect(java.util.stream.Collectors.toList());
+
+        java.util.Map<String, Object> resp = new java.util.HashMap<>();
+        resp.put("busy",        !slots.isEmpty());
+        resp.put("count",       slots.size());
+        resp.put("bookedSlots", bookedSlots);  // e.g. [{timeIn:"10:00", timeOut:"14:00"}]
+        return ResponseEntity.ok(resp);
     }
 
     // ── GET /api/bookings/user/{userId} ───────────────────
